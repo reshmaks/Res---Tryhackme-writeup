@@ -1,6 +1,6 @@
 # Res - Tryhackme Writeup
 
-**Res is a vulnerable machine on TryHackMe. Though this machine, I was introduced to Redis (Remote Dictionary Server). It is the most popular key:value store for use as database, cache or queue. Redis is totally insecure to let it be exposed over network. Redis does not have access control implementation and also it does not support encryption.**
+**Res is a vulnerable machine on TryHackMe. Through this machine, I was introduced to Redis (Remote Dictionary Server). It is the most popular key:value store for use as database, cache or queue. Redis is very insecure and should not be exposed over network. Redis does not have access control implementation and also it does not support encryption.**
 
 # Walkthourgh  - Table of Contents
 
@@ -17,7 +17,7 @@
 
 ```nmap -sV  -sC -p- 10.10.131.41```
 
-![nmap scan](/images/nmap_scan.png)
+![nmap scan](/images/nmap_scan.png | width=100)
 
 **From the results we see that we have an Apache web server running on port 80 and Redis 6.0.7  on port 6379.**
 
@@ -51,7 +51,7 @@ After researching on Redis, I found out following issues that could be exploited
 
 **I try to connect to a Redis server without a password and I was successfully connected to Redis server.**
 
-![redis connect screenshot](/images/connect_redis.png)
+![redis connect screenshot](/images/connect_redis.png | width=100)
 
 **Running the “INFO” command listed out the redis version, operating system, architecture, and more.**
 
@@ -93,7 +93,7 @@ After researching on Redis, I found out following issues that could be exploited
 
 ![password cracked screenshot](/images/john.png)
 
-**Once I logon as the user. I found that the user has full sudo privileges. Using this privilage, I was able to switch user as root and gain root access**
+**Once I logged in as the user, I found that the user had full sudo privileges. Using this privilege, I was able to switch user as root and gain root access**
 
 Root access
 ![sudo screenshot](/images/root_access.png)
