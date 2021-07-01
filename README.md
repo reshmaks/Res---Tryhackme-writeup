@@ -17,7 +17,7 @@
 
 ```nmap -sV  -sC -p- 10.10.131.41```
 
-![nmap scan](/images/nmap_scan.png | width=100)
+![nmap scan](/images/nmap_scan.png)
 
 **From the results we see that we have an Apache web server running on port 80 and Redis 6.0.7  on port 6379.**
 
@@ -29,7 +29,7 @@ Visiting the web application on http://10.10.131.41:80, displayed a standard Apa
 
 ![Web Application on Port 80](images/web_application .png)
 
-Next I ran a directory scan using Dirbuster to look for any hidden directories or files. but no hidden directories was found.
+Next I ran a directory scan using Dirbuster to look for any hidden directories or files, but no hidden directories was found.
 
 ![web directory enumeration screenshot](/images/dirbuster.png)
 
@@ -51,7 +51,7 @@ After researching on Redis, I found out following issues that could be exploited
 
 **I try to connect to a Redis server without a password and I was successfully connected to Redis server.**
 
-![redis connect screenshot](/images/connect_redis.png | width=100)
+![redis connect screenshot](/images/connect_redis.png)
 
 **Running the “INFO” command listed out the redis version, operating system, architecture, and more.**
 
