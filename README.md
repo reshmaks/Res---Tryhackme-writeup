@@ -41,17 +41,28 @@ After researching on Redis, I found out following issues that could be exploited
 * By default Redis can be accessed without credentials
 * Using Redis we could write a webshell, if we know the directory path of the web application.
 
+##Exploitation
+
 To access Redis on 10.10.131.41, I installed redis-tools on my kali machine
 
 ```sudo apt-get install redis-tools```
 
 ![redis_tools installation screenshot](/images/redis_tools.png)
 
+I try to connect to a Redis server without a password and I was successfully connected to Redis server.
+
 ![redis connect screenshot](/images/connect_redis.png)
+
+Running the “INFO” command listed out the redis version, operating system, architecture, and more.
 
 ![redis info screenshot](/images/info_redis.png)
 
-Checking the webpage, I found that it works.
+
+Writing a php script and saving it to the web directory
+
+![Webshell screenshot](/images/webshell.png)
+
+Shell writing is complete, executing it on the target machine
 
 ![Webshell execution screenshot](/images/webshell_execution.png)
 
@@ -61,15 +72,28 @@ Make a netcat connection to the attacker IP
 
 ![access screenshot](/images/user.png)
 
+##Post-Exploitation
+
 ###Privilage Escalation
+
+SUID bit is set for xxd
+
 ![suid screenshot](/images/xxd_0.png)
+
+Referencing [GTFOBins](https://gtfobins.github.io/gtfobins/xxd/), I learnt that xxd may be used to do privileged reads or disclose files outside a restricted file system. Using this capabilities, I gained read access of /etc/shadow file.
+
 ![xxd screenshot](/images/xxd.png)
 
-local user password hash from /etc/shadow file
+
+Local user password hash from /etc/shadow file was found
+
 ![password hash screenshot](/images/shadow.png)
 
-John the ripper to crack the password
+Using john the ripper, I cracked the local user password. 
+
 ![password cracked screenshot](/images/john.png)
+
+Once I logon as the user. I found that the user has full sudo privileges. Using this privilage, I was able to switch user as root and gain root access
 
 Root access
 ![sudo screenshot](/images/root_access.png)
