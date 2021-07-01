@@ -17,7 +17,7 @@ Nmap scan to find out the open ports and services
 
 ```nmap -sV  -sC -p- 10.10.131.41```
 
-![Nmap screenshot](/images/nmap_scan)
+[Nmap screenshot](images/nmap_scan)
 
 From the results we see that we have an Apache web server running on port 80 and Redis 6.0.7  on port 6379.
 
