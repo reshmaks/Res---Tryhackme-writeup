@@ -41,7 +41,7 @@ After researching on Redis, I found out following issues that could be exploited
 * By default Redis can be accessed without credentials
 * Using Redis we could write a webshell, if we know the directory path of the web application.
 
-##Exploitation
+## Exploitation
 
 To access Redis on 10.10.131.41, I installed redis-tools on my kali machine
 
@@ -72,9 +72,9 @@ Make a netcat connection to the attacker IP
 
 ![access screenshot](/images/user.png)
 
-##Post-Exploitation
+## Post-Exploitation
 
-###Privilage Escalation
+### Privilage Escalation
 
 SUID bit is set for xxd
 
