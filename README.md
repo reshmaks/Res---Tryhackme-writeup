@@ -27,7 +27,7 @@ From the results we see that we have an Apache web server running on port 80 and
 
 Visiting the web application on http://10.10.131.41:80, displayed a standard Apache landing page. Nothing was revealed by examining the source code
 
-![Web Application on Port 80](/images/web_application .png)
+![Web Application on Port 80](images/web_application .png)
 
 Next I ran a directory scan using Dirbuster to look for any hidden directories or files. but no hidden directories was found.
 
